@@ -1,0 +1,40 @@
+{% extends 'inventory/base.html' %}
+
+{% block js %}
+<script>
+    function add() {
+        var data = {
+            "name": $('#name').val(),
+            "quantity": parseInt($('#quantity').val()),
+            "location": $('#location').val()
+        };
+        $.ajax({
+            url: '/inventory/',
+            contentType: 'application/json',
+            method: 'POST',
+            data: JSON.stringify(data),
+            success: function(result) {
+                window.location.href = "/inventory";
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    };
+</script>
+{% endblock js %}
+
+{% block content %}
+    <a href="/inventory">Back to Home</a><br/>
+    <form>
+        Name : <input type="text" id="name" value=""/><br/>
+        Quantiy : <input type="number" id="quantity" value=""/><br/>
+        Location: <select name="location" id="location">
+                <option disabled selected>Select</option>
+            {% for key in data.locations %}
+                <option value={{key}}>{{key}}</option>
+            {% endfor %}
+        </select><br/><br/>
+        <input type="button" onclick="add()" value="Add"/>
+    </form>
+{% endblock content %}

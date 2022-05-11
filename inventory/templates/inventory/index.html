@@ -1,0 +1,25 @@
+{% extends 'inventory/base.html' %}
+{% load static %}
+
+{% block content %}
+    <a href="add">Add to Inventory</a><br/>
+    <table border>
+        <tr>
+          <th>Name</th>
+          <th>Quantity</th>
+          <th>Location</th>
+          <th>Weather (in C)</th>
+          <th></th>
+        </tr>
+        {% for item in data %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.location }}</td>
+                <td>{{ item.weather }}</td>
+                <td><a href="/inventory/edit/{{item.id}}">Edit</a></td>
+            </tr>
+        {% endfor %}
+    </table><br/>
+    <a href="{% url 'export_inventory' %}">Export Data</a>
+{% endblock content %}

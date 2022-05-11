@@ -1,0 +1,53 @@
+{% extends 'inventory/base.html' %}
+
+{% block js %}
+<script>
+    function edit() {
+        var data = {
+            "name": $('#name').val(),
+            "quantity": parseInt($('#quantity').val()),
+            "location": $('#location').val()
+        };
+        $.ajax({
+            url: '/inventory/{{data.inventory.id}}/',
+            contentType: 'application/json',
+            method: 'PUT',
+            data: JSON.stringify(data),
+            success: function(result) {
+                window.location.href = "/inventory";
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    };
+    function delete_item() {
+        $.ajax({
+            url: '/inventory/{{data.inventory.id}}/',
+            contentType: 'application/json',
+            method: 'DELETE',
+            success: function(result) {
+                window.location.href = "/inventory";
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        })
+    }
+</script>
+{% endblock js %}
+
+{% block content %}
+    <a href="/inventory">Back to Home</a><br/>
+    <form>
+        Name : <input type="text" id="name" value="{{ data.inventory.name }}"/><br/>
+        Quantiy : <input type="number" id="quantity" value="{{ data.inventory.quantity }}"/><br/>
+        Location: <select name="location" id="location">
+            {% for key in data.locations %}
+                <option value={{key}} {% if data.inventory.location == key %} selected='selected' {% endif %}>{{key}}</option>
+            {% endfor %}
+        </select><br/><br/>
+        <input type="button" onclick="edit()" value="Update"/>
+        <input type="button" onclick="delete_item()" value="Delete"/><br/>
+    </form>
+{% endblock content %}
