@@ -1,0 +1,19 @@
+[[package]]
+name = "environ"
+version = "1.0"
+description = "Stack Based Globals Management"
+category = "main"
+optional = false
+python-versions = "*"
+
+[metadata]
+lock-version = "1.1"
+python-versions = "*"
+content-hash = "724e91646a0d7aeb7fa2d1d07d640c2de4ddcb3fc1f0f9ad47094657132124f4"
+
+[metadata.files]
+environ = [
+    {file = "environ-1.0.linux-i686.tar.gz", hash = "sha256:9266e62dd8004f3bf181b24c97aa129844e7e7ec87bf3ed06ef3888293212011"},
+    {file = "environ-1.0.tar.gz", hash = "sha256:4df7f1dfeb7d1c988d2e19a8bd5d547a526e0400aeb35adf732032472f35dcb0"},
+    {file = "environ-1.0.win32.exe", hash = "sha256:052ded34331655b9c7982abd5681a066b9aaf9adf33b3412c7e842ce959e40b0"},
+]

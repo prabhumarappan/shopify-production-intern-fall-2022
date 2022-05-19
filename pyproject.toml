@@ -1,0 +1,13 @@
+[build-system]
+build-backend = "poetry.masonry.api"
+requires = ["poetry>=0.12"]
+
+[tool]
+[tool.poetry]
+authors = ["Prabhu <prabhum.794@gmail.com>"]
+description = ""
+name = "django-template"
+version = "0.1.0"
+
+[tool.poetry.dependencies]
+environ = "^1.0"
