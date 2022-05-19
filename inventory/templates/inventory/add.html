@@ -32,7 +32,7 @@
         Location: <select name="location" id="location">
                 <option disabled selected>Select</option>
             {% for key in data.locations %}
-                <option value={{key}}>{{key}}</option>
+                <option value="{{ key}}">{{key}}</option>
             {% endfor %}
         </select><br/><br/>
         <input type="button" onclick="add()" value="Add"/>
