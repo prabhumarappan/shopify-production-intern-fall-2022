@@ -12,3 +12,5 @@ To run locally
 
 Replit URL:
 `https://replit.com/@prabhumarappan/shopify-production-intern-fall-1`
+
+Click on Run and then Click on Open website
